@@ -1,8 +1,4 @@
-# ## Revised stability calculations
-# - Can we do 5  runs for each of 10  instances?
-#     - Calculate average Jaccard similarity for each instance
-#     - Make a box plot or something similar to show distribution of similarity measures across instances
-#     - Per Yuriy’s suggestion, we could also calculate Ruzicka similarity (https://en.wikipedia.org/wiki/Jaccard_index) on soft masks
+# This file makes the plots for the stability experiments
 
 
 import setup

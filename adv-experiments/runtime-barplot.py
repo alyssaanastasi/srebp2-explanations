@@ -1,3 +1,5 @@
+# This file outputs the barplot displaying the average runtime of the explainer methods. 
+
 import setup
 import matplotlib.pyplot
 import pickle

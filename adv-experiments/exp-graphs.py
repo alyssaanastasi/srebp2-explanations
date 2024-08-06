@@ -1,3 +1,5 @@
+# This file is to get the pickle files and visualize both the sub graph structure and feature importance. 
+
 import setup
 import pickle
 import graphviz
@@ -114,7 +116,7 @@ def _visualize_score(
 
 def explanation_graphs(explanations, title, k):
     ind = 0
-    """ plt.clf()
+    plt.clf()
     plt.rc('font', size=16)   
     plt.plot(setup.k_vals, explanations['positive_fid'])
     plt.ylim(bottom=0, top=1.1)
@@ -130,14 +132,14 @@ def explanation_graphs(explanations, title, k):
     plt.xlabel('Max Threshold on Edges and Features')
     plt.ylabel('Sufficiency')
     plt.xticks([10, 20, 40, 80])
-    plt.savefig(f"figures/{title}_negative.png", bbox_inches='tight') """
+    plt.savefig(f"figures/{title}_negative.png", bbox_inches='tight')
 
     exp_10 = explanations['explanations'][k]
     for explanation in exp_10:
-        """ try:
+        try:
             explanation.visualize_graph(path=f"figures/{title}_{setup.node_labels[ind]}_{k}.png", backend='graphviz', node_labels=setup.node_series)
         except:
-            pass """
+            pass
         try:
             plt.rc('font', size=16) 
             visualize_feature_importance(explainer=explanation, path=f"figures/{title}_{setup.node_labels[ind]}_{k}_features.png", top_k=k, feat_labels=setup.feat_labels)

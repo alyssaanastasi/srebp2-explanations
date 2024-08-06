@@ -1,4 +1,5 @@
-# %%
+# This file includes all of the setup for the experiments including the model, explanation methods, and functions. 
+
 # install necessary packages
 from torch_geometric.data import Data, DataLoader
 from torch_geometric.explain import GNNExplainer,Explainer,GraphMaskExplainer,PGExplainer, DummyExplainer
@@ -19,7 +20,7 @@ from stringdb_alias import HGNCMapper
 import sys
 import pandas as pd
 
-# %%
+# Model Setup
 class SimpleGAT_1(torch.nn.Module):
     """
     A graph attention network with 4 graph layers and 2 linear layers.
@@ -45,14 +46,14 @@ class SimpleGAT_1(torch.nn.Module):
         out = torch.sigmoid(out)
         return out
 
-# %%
+# Load in Data and Model
 data = torch.load('../new_SREBP2_2.pt')
 model_path = '../SimpleGAT_1_model_lr5e-05_dp_0.0SREBP2.pth'
 model = SimpleGAT_1(data,dim = 16)
 model.load_state_dict(torch.load(model_path,map_location=torch.device('cpu')))
 model.eval()
 
-# %%
+# Get feature labels
 with open('../feature_index.json') as json_file:
     feat_labels = json.load(json_file)
 
